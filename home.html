@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Same Day Supply - HVAC, Plumbing & Electrical Parts Delivered Fast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        :root {
+            --brand-dark: #231F20;
+            --brand-orange: #F7941D;
+            --brand-orange-dark: #e68a0d;
+            --brand-green: #22c55e;
+            --background-light: #F8F9FA;
+            --background-white: #FFFFFF;
+            --text-dark: #231F20;
+            --text-light: #FFFFFF;
+            --text-muted: #6c757d;
+            --gray-light: #f8f9fa;
+            --gray-dark: #343a40;
+            --gray-border: #dee2e6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        a {
+            color: var(--brand-orange);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--brand-orange-dark);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .brand-orange-text {
+            color: var(--brand-orange);
+        }
+
+        /* Header */
+        .header-container {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--background-white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .top-bar {
+            background-color: var(--gray-light);
+            border-bottom: 1px solid var(--gray-border);
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.5rem;
+        }
+
+        .top-bar a {
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        
+        .top-bar a:hover {
+            color: var(--text-dark);
+        }
+
+        .main-header {
+            background-color: var(--background-white);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 6rem; /* 96px */
+            gap: 1rem;
+        }
+
+        .logo {
+            flex-shrink: 0;
+        }
+        
+        .logo img {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .header-search {
+            flex-grow: 1;
+            max-width: 500px;
+            position: relative;
+            display: none; /* Hidden on mobile by default */
+        }
+        
+        .header-search input {
+            width: 100%;
+            padding: 0.75rem 2.5rem 0.75rem 1rem;
+            border: 1px solid var(--gray-border);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .header-search button {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .header-contact {
+            text-align: right;
+            display: none; /* Hidden on mobile */
+        }
+        
+        .header-contact span {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        
+        .header-contact a {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .header-cart a {
+            font-size: 1.75rem;
+            color: var(--brand-orange);
+        }
+
+        .main-nav {
+            background-color: var(--brand-dark);
+            display: none; /* Hidden on mobile */
+        }
+        
+        .main-nav-content {
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        .main-nav a {
+            color: var(--text-light);
+            padding: 1rem 0;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .main-nav a:hover {
+            color: var(--brand-orange);
+        }
+        
+        #mobile-menu-button {
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+             cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: -1.5rem; /* Align with padding */
+            background-color: var(--background-white);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 0 0 0.5rem 0.5rem;
+            min-width: 240px;
+            z-index: 1100;
+            border-top: 3px solid var(--brand-orange);
+            padding: 0.5rem 0;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: var(--text-dark);
+            padding: 0.75rem 1.5rem;
+            display: block;
+            white-space: nowrap;
+            text-transform: none;
+            font-weight: 400;
+            font-size: 1rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--gray-light);
+            color: var(--brand-orange);
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            display: block;
+            position: absolute;
+            top: 100%; /* Position below header container */
+            left: 0;
+            width: 100%;
+            background-color: var(--brand-dark);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            padding: 1rem;
+        }
+        
+        #mobile-menu.is-active {
+            transform: translateX(0);
+        }
+
+        #mobile-menu nav a {
+            display: block;
+            color: var(--text-light);
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            text-transform: uppercase;
+        }
+        
+        #mobile-menu nav .mobile-submenu a {
+            padding-left: 2rem;
+            font-size: 0.875rem;
+            text-transform: none;
+            color: #ced4da;
+        }
+        
+        #mobile-menu nav a:hover {
+            background-color: var(--gray-dark);
+        }
+        
+        .quick-order-btn {
+            background-color: var(--brand-orange);
+            color: var(--text-light);
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .quick-order-btn:hover {
+             background-color: var(--brand-orange-dark);
+        }
+
+        #mobile-menu .quick-order-btn {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(35, 31, 32, 0.8), rgba(35, 31, 32, 0.8)), url('images/hero.png') no-repeat center center;
+            background-size: cover;
+            color: var(--text-light);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subheadline {
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--brand-green);
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.6);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .hero-section p {
+            font-size: 1.125rem;
+            max-width: 60ch;
+            margin: 0 auto 2rem auto;
+        }
+
+        .hero-search {
+            position: relative;
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        .hero-search input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            font-size: 1rem;
+            color: var(--text-dark);
+            border-radius: 0.5rem;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .hero-search input:focus {
+            outline: 3px solid var(--brand-orange);
+            outline-offset: 2px;
+        }
+
+        .hero-search button {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--brand-orange);
+            cursor: pointer;
+        }
+
+        /* Sections General */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+        
+        .section-subtitle {
+             text-align: center;
+             font-size: 1.125rem;
+             color: var(--text-muted);
+             margin-top: -2.5rem;
+             margin-bottom: 3rem;
+             max-width: 60ch;
+             margin-left: auto;
+             margin-right: auto;
+        }
+
+        /* Categories Section */
+        .categories-section {
+             background-color: var(--background-white);
+        }
+        
+        .detailed-category-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .small-category-card {
+            background-color: var(--background-white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            height: 200px;
+        }
+        
+        .small-category-card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        
+        .small-category-card-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .small-category-card:hover .small-category-card-img {
+            transform: scale(1.05);
+        }
+        
+        .small-category-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);
+            z-index: 2;
+            transition: background 0.3s ease;
+        }
+        
+        .small-category-card:hover::after {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 70%);
+        }
+        
+        .small-category-card span {
+            padding: 1rem;
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--text-light);
+            position: relative;
+            z-index: 3;
+            transition: color 0.3s ease;
+        }
+        
+        .small-category-card:hover span {
+            color: var(--brand-orange);
+        }
+
+
+        /* Why Choose Us Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .icon-feature i {
+            font-size: 3rem;
+            color: var(--brand-orange);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .icon-feature:hover i {
+            transform: scale(1.1);
+        }
+
+        .icon-feature h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .icon-feature p {
+            color: var(--text-muted);
+        }
+        
+        /* Featured Products Section */
+        .featured-products-section {
+            background-color: var(--background-white);
+        }
+        
+        .carousel-wrapper {
+            position: relative;
+        }
+
+        .carousel-viewport {
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #product-carousel .carousel-track {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: calc(50% - 0.75rem);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        .product-card {
+            background-color: var(--background-white);
+            border: 1px solid var(--gray-border);
+            border-radius: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            width: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        
+        .product-card-img {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-border);
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card-img img {
+            max-height: 100%;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-card-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-card-content {
+            padding: 1rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            position: relative; 
+            padding-bottom: 4.5rem; /* Increased padding to make space for the button */
+        }
+        
+        .product-card-content h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-dark);
+        }
+        
+        .product-card-content .brand {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-card-content .view-btn {
+            background-color: transparent;
+            color: var(--brand-orange);
+            border: 1px solid var(--brand-orange);
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            width: calc(100% - 2rem);
+        }
+        
+        .product-card:hover .view-btn {
+            background-color: var(--brand-orange);
+            color: var(--text-light);
+        }
+
+        .carousel-wrapper .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--gray-border);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-wrapper .carousel-button:hover {
+            background-color: var(--brand-orange);
+            color: var(--text-light);
+            border-color: var(--brand-orange);
+        }
+
+        .carousel-wrapper .carousel-button:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .carousel-wrapper .prev-button { left: -50px; }
+        .carousel-wrapper .next-button { right: -50px; }
+
+        /* Call to Action Section */
+        .cta-section {
+            background-color: var(--brand-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 60ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background-color: var(--brand-orange);
+            color: var(--text-light);
+            font-size: 1.125rem;
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--brand-orange-dark);
+            color: var(--text-light);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--background-light);
+        }
+        
+        .testimonial-card {
+            background-color: var(--background-white);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            width: 100%;
+        }
+        
+        .testimonial-card .quote {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .testimonial-card .author-info {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .testimonial-card .author-details {
+            line-height: 1.4;
+        }
+
+        .testimonial-card .author-info .quote-icon {
+            font-size: 1.5rem;
+            color: var(--brand-orange);
+        }
+
+        .testimonial-card .author {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .testimonial-card .company {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        
+        .star-rating {
+            color: var(--brand-orange);
+            margin-bottom: 1rem;
+        }
+
+        .carousel-dots {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: var(--gray-border);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .dot.active {
+            background-color: var(--brand-orange);
+        }
+
+
+        /* Trusted Brands Section */
+        .brands-section {
+            background-color: var(--background-white);
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+        
+        .brands-carousel {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+        
+        .brands-carousel img {
+            height: 60px;
+            width: auto;
+            margin: 0 2rem;
+            filter: grayscale(1);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .brands-section:hover .brands-carousel {
+            animation-play-state: paused;
+        }
+        
+        .brands-carousel img:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+
+        /* Footer */
+        .main-footer {
+            background-color: #1a1a1a;
+            color: var(--text-light);
+            padding-top: 5rem;
+            padding-bottom: 2rem;
+            border-top: 4px solid var(--brand-orange);
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-middle {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--gray-dark);
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .footer-newsletter, .footer-socials {
+            flex: 1 1 45%;
+            min-width: 300px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+        
+        .footer-col p, .footer-col li {
+             color: #adb5bd;
+        }
+        
+        .footer-col .logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-col ul a {
+            color: #adb5bd;
+        }
+        
+        .footer-col ul a:hover {
+            color: var(--brand-orange);
+        }
+        
+        .footer-contact-info i {
+            width: 20px;
+            text-align: center;
+            margin-right: 0.5rem;
+            color: var(--brand-orange);
+        }
+
+        .newsletter-form p {
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-input-group {
+            display: flex;
+            max-width: 400px;
+        }
+        
+        .newsletter-input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-dark);
+            border-right: none;
+            border-radius: 0.375rem 0 0 0.375rem;
+            background-color: #495057;
+            color: var(--text-light);
+        }
+        
+        .newsletter-input-group button {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--brand-orange);
+            background-color: var(--brand-orange);
+            color: var(--text-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-input-group button:hover {
+            background-color: var(--brand-orange-dark);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            text-align: center;
+            color: #6c757d;
+        }
+        
+        .footer-socials {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-socials .social-links-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: #adb5bd;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--brand-orange);
+        }
+        
+        /* Quick Order Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background-color: var(--background-white);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-border);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        
+        .quick-order-form .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .quick-order-form .form-row input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-border);
+            border-radius: 0.375rem;
+        }
+        
+        .quick-order-form .form-row input[name="part-qty"] {
+            max-width: 80px;
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+        
+        .add-part-btn {
+            background: none;
+            border: 1px solid var(--gray-border);
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+        }
+        
+        .add-to-cart-btn {
+            background-color: var(--brand-orange);
+            color: var(--text-light);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .footer-top {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .footer-middle {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-socials {
+                align-items: flex-start;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        
+            #mobile-menu-button {
+                display: none;
+            }
+            
+            .header-search, .header-contact, .main-nav {
+                display: block;
+            }
+            
+            .header-content {
+                justify-content: space-between;
+                gap: 2rem;
+            }
+            
+            .header-search {
+                display: block;
+            }
+            
+            .header-contact {
+                display: block;
+            }
+            
+            .main-nav {
+                display: block;
+            }
+            
+            .hero-section h1 {
+                font-size: 3.75rem;
+            }
+            
+            .hero-section {
+                padding: 8rem 0;
+            }
+            
+            .detailed-category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            #product-carousel .carousel-track {
+                grid-auto-columns: calc(100% / 2 - 0.75rem);
+            }
+            
+            .testimonial-card {
+                 width: calc((100% - 1.5rem) / 2);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+             .detailed-category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            #product-carousel .carousel-track {
+                 grid-auto-columns: calc(100% / 4 - (3 * 1.5rem / 4));
+            }
+             .testimonial-card {
+                 width: calc((100% - 2 * 1.5rem) / 3);
+            }
+            .header-actions {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Container -->
+    <div class="header-container">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <a href="#">Contact Us</a>
+                    <a href="#">My Account</a>
+                    <a href="#">Create an Account</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <header class="main-header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="#" class="logo">
+                        <img src="https://samedaysupply.com/cdn/shop/files/Same_Day_Supply_Stacked_1_b7b9051d-0e9a-4dbc-9a6c-06d070833e23.png" alt="Same Day Supply Logo">
+                    </a>
+                    
+                    <div class="header-search">
+                        <form>
+                            <input type="search" placeholder="Search...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="header-contact">
+                        <span>Call Us Now</span>
+                        <a href="tel:888-787-7284">888-787-7284</a>
+                    </div>
+                    
+                    <div class="header-cart">
+                        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                    </div>
+                    
+                    <div class="header-actions">
+                         <button class="quick-order-btn">Quick Order</button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <div class="container">
+                <div class="main-nav-content">
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Healthy Air <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#">Furnace Filters</a>
+                            <a href="#">Filter Cabinets</a>
+                            <a href="#">Air Purifiers</a>
+                            <a href="#">Dehumidifiers</a>
+                            <a href="#">Dehumidifier Filters</a>
+                            <a href="#">Humidifiers</a>
+                            <a href="#">Water Panels</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Parts <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#">Parts</a>
+                            <a href="#">Light Bulbs</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Brand <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#">AprilAire</a>
+                            <a href="#">Carrier & Bryant</a>
+                            <a href="#">Dynamic</a>
+                            <a href="#">GeneralAire</a>
+                            <a href="#">Goodman</a>
+                            <a href="#">Honeywell</a>
+                            <a href="#">International Comfort Products</a>
+                            <a href="#">Koch</a>
+                            <a href="#">Lennox</a>
+                            <a href="#">Little Giant</a>
+                            <a href="#">Nu-Calgon</a>
+                            <a href="#">Respicaire</a>
+                            <a href="#">Rheem</a>
+                            <a href="#">Second Wind</a>
+                            <a href="#">Trane</a>
+                            <a href="#">Tri-Dim</a>
+                            <a href="#">Trion</a>
+                        </div>
+                    </div>
+                    <a href="#">All Products</a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu">
+            <nav>
+                <a href="#">Healthy Air</a>
+                <div class="mobile-submenu">
+                    <a href="#">Furnace Filters</a>
+                    <a href="#">Filter Cabinets</a>
+                    <a href="#">Air Purifiers</a>
+                    <a href="#">Dehumidifiers</a>
+                    <a href="#">Dehumidifier Filters</a>
+                    <a href="#">Humidifiers</a>
+                    <a href="#">Water Panels</a>
+                </div>
+                <a href="#">Parts</a>
+                 <div class="mobile-submenu">
+                    <a href="#">Parts</a>
+                    <a href="#">Light Bulbs</a>
+                </div>
+                <a href="#">Brand</a>
+                <div class="mobile-submenu">
+                    <a href="#">AprilAire</a>
+                    <a href="#">Carrier & Bryant</a>
+                    <a href="#">Dynamic</a>
+                    <a href="#">GeneralAire</a>
+                    <a href="#">Goodman</a>
+                    <a href="#">Honeywell</a>
+                    <a href="#">International Comfort Products</a>
+                    <a href="#">Koch</a>
+                    <a href="#">Lennox</a>
+                    <a href="#">Little Giant</a>
+                    <a href="#">Nu-Calgon</a>
+                    <a href="#">Respicaire</a>
+                    <a href="#">Rheem</a>
+                    <a href="#">Second Wind</a>
+                    <a href="#">Trane</a>
+                    <a href="#">Tri-Dim</a>
+                    <a href="#">Trion</a>
+                </div>
+                <a href="#">All Products</a>
+                <hr style="border-color: #495057; margin: 1rem 0;">
+                <a href="#">My Account</a>
+                <a href="#">Create an Account</a>
+                <a href="#">Contact Us</a>
+                <button class="quick-order-btn">Quick Order</button>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1>Get Parts <span class="brand-orange-text">Today</span>. Finish Jobs <span class="brand-orange-text">Faster</span>.</h1>
+                <h2 class="hero-subheadline"><i class="fas fa-shield-alt"></i> Trusted Supply Partner Since 1954</h2>
+                <p>Your reliable source for essential supplies, delivered same-day so you never miss a deadline.</p>
+                <div class="hero-search">
+                    <input type="search" placeholder="Search by Part #, Keyword, or Brand...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Categories Section -->
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">Shop by Category</h2>
+                <div class="detailed-category-grid">
+                    <a href="#" class="small-category-card">
+                        <img class="small-category-card-img" src="images/furnace-filters.png" alt="Furnace Filters">
+                        <span>Furnace Filters</span>
+                    </a>
+                    <a href="#" class="small-category-card">
+                        <img class="small-category-card-img" src="images/filter-cabinets.jpg" alt="Filter Cabinets">
+                        <span>Filter Cabinets</span>
+                    </a>
+                    <a href="#" class="small-category-card">
+                        <img class="small-category-card-img" src="images/air-purifiers.png" alt="Air Purifiers">
+                        <span>Air Purifiers</span>
+                    </a>
+                    <a href="#" class="small-category-card">
+                        <img class="small-category-card-img" src="images/dehumidifiers.png" alt="Dehumidifiers">
+                        <span>Dehumidifiers</span>
+                    </a>
+                    <a href="#" class="small-category-card">
+                        <img class="small-category-card-img" src="images/dehumidifier-filters.png" alt="Dehumidifier Filters">
+                        <span>Dehumidifier Filters</span>
+                    </a>
+                    <a href="#" class="small-category-card">
+                        <img class="small-category-card-img" src="images/humidifiers.png" alt="Humidifiers">
+                        <span>Humidifiers</span>
+                    </a>
+                    <a href="#" class="small-category-card">
+                        <img class="small-category-card-img" src="images/water-panels.png" alt="Water Panels">
+                        <span>Water Panels</span>
+                    </a>
+                    <a href="#" class="small-category-card">
+                        <img class="small-category-card-img" src="images/parts.jpg" alt="Parts">
+                        <span>Parts</span>
+                    </a>
+                    <a href="#" class="small-category-card">
+                        <img class="small-category-card-img" src="images/lightbulbs.png" alt="Light Bulbs">
+                        <span>Light Bulbs</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-us-section">
+            <div class="container">
+                <h2 class="section-title">The Same Day Advantage</h2>
+                <p class="section-subtitle">We're built for professionals who can't afford to wait.</p>
+                <div class="features-grid">
+                    <div class="icon-feature">
+                        <i class="fas fa-shipping-fast"></i>
+                        <h3>Same-Day Delivery</h3>
+                        <p>Order by noon and get your parts the very same day. Keep your projects on schedule.</p>
+                    </div>
+                    <div class="icon-feature">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Established in 1954</h3>
+                        <p>With over 70 years of experience, we have the knowledge to help you find the right part, every time.</p>
+                    </div>
+                    <div class="icon-feature">
+                        <i class="fas fa-headset"></i>
+                        <h3>Expert Support</h3>
+                        <p>Our knowledgeable staff is ready to help you find the exact part you need, fast.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Products Section -->
+        <section class="featured-products-section">
+            <div class="container">
+                <h2 class="section-title">Our Best Sellers</h2>
+                <div class="carousel-wrapper" id="product-carousel">
+                    <div class="carousel-viewport">
+                        <div class="carousel-track">
+                            <!-- Products will be dynamically inserted here by JavaScript -->
+                        </div>
+                    </div>
+                    <button class="carousel-button prev-button"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-button next-button"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div id="testimonials-carousel">
+                    <div class="carousel-viewport">
+                        <div class="carousel-track">
+                            <!-- Testimonials will be dynamically inserted here -->
+                        </div>
+                    </div>
+                    <div class="carousel-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Don't Let a Missing Part Stop You.</h2>
+                <p>Create a free account to unlock faster checkout and easy order tracking.</p>
+                <a href="#" class="cta-button">Create Your Account</a>
+            </div>
+        </section>
+
+        <!-- Trusted Brands Section -->
+        <section class="brands-section">
+             <div class="container">
+                <h2 class="section-title">Stocking the Brands You Trust</h2>
+                <div class="brands-carousel">
+                    <img src="images/carrier.svg" alt="Carrier Logo">
+                    <img src="images/bryant.svg" alt="Bryant Logo">
+                    <img src="images/airbear.png" alt="Air Bear Logo">
+                    <img src="images/lennox.svg" alt="Lennox Logo">
+                    <img src="images/aprilaire.svg" alt="AprilAire Logo">
+                    <img src="images/honeywell.svg" alt="Honeywell Logo">
+                    <!-- Duplicated for seamless loop -->
+                    <img src="images/carrier.svg" alt="Carrier Logo">
+                    <img src="images/bryant.svg" alt="Bryant Logo">
+                    <img src="images/airbear.png" alt="Air Bear Logo">
+                    <img src="images/lennox.svg" alt="Lennox Logo">
+                    <img src="images/aprilaire.svg" alt="AprilAire Logo">
+                    <img src="images/honeywell.svg" alt="Honeywell Logo">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col">
+                     <a href="#" class="logo">
+                        <img src="https://samedaysupply.com/cdn/shop/files/Same_Day_Supply_Stacked_1_b7b9051d-0e9a-4dbc-9a6c-06d070833e23.png" alt="Same Day Supply Logo" style="filter: brightness(0) invert(1); max-height: 60px;">
+                    </a>
+                    <p class="footer-contact-info" style="margin-top: 1.5rem; color: #adb5bd; line-height: 2;">
+                        <i class="fas fa-phone"></i> Phone: 888-787-7284<br>
+                        <i class="fas fa-envelope"></i> Email: <a href="mailto:Support@SameDaySupply.com">Support@SameDaySupply.com</a>
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Search</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h3>Account</h3>
+                    <ul>
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Order History</a></li>
+                        <li><a href="#">Wishlist</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-middle">
+                <div class="footer-newsletter">
+                    <h3>Join Our Newsletter</h3>
+                    <form class="newsletter-form">
+                        <p>Get the latest updates on new products and upcoming sales.</p>
+                        <div class="newsletter-input-group">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="footer-socials">
+                    <div class="social-links-wrapper">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                     <p class="footer-contact-info" style="color: #adb5bd; line-height: 2; margin-top: 1rem;">
+                        <i class="fas fa-clock"></i> Hours: Monday - Friday 9am To 5pm EST
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SameDaySupply.com All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Quick Order Modal -->
+    <div id="quick-order-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Quick Order</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="quick-order-form">
+                    <div id="quick-order-rows">
+                        <div class="form-row">
+                            <input type="text" name="part-number" placeholder="Enter Part #">
+                            <input type="number" name="part-qty" placeholder="Qty" value="1">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="add-part-btn">Add Another Part</button>
+                        <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function setupCarousel(carouselId, data, cardRenderer, itemsPerViewBreakpoints, navType = 'arrows', autoSlide = false) {
+                const carousel = document.getElementById(carouselId);
+                if (!carousel) return;
+
+                const track = carousel.querySelector('.carousel-track');
+                const viewport = carousel.querySelector('.carousel-viewport');
+                let items = [];
+                let currentIndex = 0;
+                let itemWidth = 0;
+                let autoSlideInterval;
+
+                function getItemsPerView() {
+                    const breakpoints = Object.keys(itemsPerViewBreakpoints).sort((a, b) => b - a);
+                    const activeBreakpoint = breakpoints.find(bp => window.innerWidth >= bp);
+                    return itemsPerViewBreakpoints[activeBreakpoint];
+                }
+
+                function renderItems() {
+                    track.innerHTML = data.map(cardRenderer).join('');
+                    items = Array.from(track.children);
+                }
+
+                function updateCarousel(animate = true) {
+                    if (items.length === 0) return;
+                    
+                    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+                    itemWidth = items[0].offsetWidth + gap;
+                    
+                    track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+                    track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+
+                    updateNav();
+                }
+
+                function updateNav() {
+                    if (navType === 'arrows') {
+                        const prevButton = carousel.querySelector('.prev-button');
+                        const nextButton = carousel.querySelector('.next-button');
+                        if (prevButton && nextButton) {
+                            prevButton.disabled = currentIndex === 0;
+                            nextButton.disabled = currentIndex >= items.length - getItemsPerView();
+                        }
+                    } else if (navType === 'dots') {
+                        const dots = carousel.querySelectorAll('.dot');
+                        dots.forEach((dot, index) => {
+                            dot.classList.toggle('active', index === currentIndex);
+                        });
+                    }
+                }
+                
+                function nextItem() {
+                    const itemsPerView = getItemsPerView();
+                    if (currentIndex < items.length - itemsPerView) {
+                        currentIndex++;
+                    } else {
+                        currentIndex = 0; // Loop back
+                    }
+                    updateCarousel();
+                }
+
+                function prevItem() {
+                     if (currentIndex > 0) {
+                        currentIndex--;
+                    } else {
+                        currentIndex = items.length - getItemsPerView(); // Loop to end
+                    }
+                    updateCarousel();
+                }
+                
+                function startAutoSlide() {
+                    if (!autoSlide) return;
+                    stopAutoSlide();
+                    autoSlideInterval = setInterval(nextItem, 5000);
+                }
+
+                function stopAutoSlide() {
+                    clearInterval(autoSlideInterval);
+                }
+
+                // --- Initial Setup ---
+                renderItems();
+                
+                if (navType === 'arrows') {
+                    const prevButton = carousel.querySelector('.prev-button');
+                    const nextButton = carousel.querySelector('.next-button');
+                    prevButton.addEventListener('click', prevItem);
+                    nextButton.addEventListener('click', nextItem);
+                } else if (navType === 'dots') {
+                    const dotsContainer = carousel.querySelector('.carousel-dots');
+                    dotsContainer.innerHTML = '';
+                    const numDots = items.length - getItemsPerView() + 1;
+                    for (let i = 0; i < numDots; i++) {
+                        const dot = document.createElement('button');
+                        dot.className = 'dot';
+                        dot.addEventListener('click', () => {
+                            currentIndex = i;
+                            updateCarousel();
+                        });
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+
+                carousel.addEventListener('mouseenter', stopAutoSlide);
+                carousel.addEventListener('mouseleave', startAutoSlide);
+
+                window.addEventListener('resize', () => {
+                    currentIndex = 0;
+                    updateCarousel(false);
+                });
+                
+                updateCarousel(false);
+                startAutoSlide();
+            }
+
+            // --- Product Data & Renderer ---
+            const products = [
+                { name: '16x25x5 Merv 11 Filter', brand: 'by AprilAire', img: 'https://samedaysupply.com/cdn/shop/files/lennox_x6670_filter.jpg' },
+                { name: 'Whole-House Humidifier', brand: 'by Honeywell', img: 'https://samedaysupply.com/cdn/shop/files/4400_1.jpg' },
+                { name: 'UV Replacement Bulb', brand: 'by Second Wind', img: 'https://samedaysupply.com/cdn/shop/products/y0390.jpg' },
+                { name: 'Condensate Pump', brand: 'by Little Giant', img: 'https://samedaysupply.com/cdn/shop/products/hc38gr239.jpg' },
+                { name: '20x25x5 Merv 13 Filter', brand: 'by Trane', img: 'https://samedaysupply.com/cdn/shop/files/19l17_1_1.png' },
+                { name: 'Filter Cabinet', brand: 'by Lennox', img: 'https://samedaysupply.com/cdn/shop/files/LennoxFilterCabinetPicture_7f1bfaf8-dc78-4deb-9d96-c916da61b970.jpg' },
+                { name: 'Water Panel Evaporator', brand: 'by GeneralAire', img: 'https://samedaysupply.com/cdn/shop/files/990-13_HIGH_RES.jpg' },
+                { name: 'Smart Thermostat', brand: 'by Carrier', img: 'https://samedaysupply.com/cdn/shop/products/utc319828-701.jpg' },
+                { name: 'Hot Surface Ignitor', brand: 'by Rheem', img: 'https://placehold.co/200x200/231F20/FFFFFF?text=Ignitor' },
+                { name: 'Blower Motor', brand: 'by Lennox', img: 'https://placehold.co/200x200/F7941D/FFFFFF?text=Motor' },
+                { name: 'Evaporator Coil Cleaner', brand: 'by Nu-Calgon', img: 'https://placehold.co/200x200/231F20/FFFFFF?text=Coil+Cleaner' },
+                { name: '20x20x1 Merv 8 Filter', brand: 'by Koch', img: 'https://placehold.co/200x200/F7941D/FFFFFF?text=Filter' },
+                { name: 'Run Capacitor', brand: 'by Titan', img: 'https://placehold.co/200x200/231F20/FFFFFF?text=Capacitor' },
+                { name: 'Universal Gas Valve', brand: 'by White-Rodgers', img: 'https://placehold.co/200x200/F7941D/FFFFFF?text=Valve' },
+                { name: '18/2 Thermostat Wire', brand: 'by Honeywell', img: 'https://placehold.co/200x200/231F20/FFFFFF?text=Wire' },
+                { name: 'Secondary Drain Pan', brand: 'by DiversiTech', img: 'https://placehold.co/200x200/F7941D/FFFFFF?text=Pan' }
+            ];
+
+            const productCardRenderer = (product) => `
+                <div class="product-card">
+                    <div class="product-card-img"><img src="${product.img}" alt="${product.name}"></div>
+                    <div class="product-card-content">
+                        <h4>${product.name}</h4>
+                        <p class="brand">${product.brand}</p>
+                        <a href="#" class="view-btn">View Product</a>
+                    </div>
+                </div>
+            `;
+            
+            // --- Testimonial Data & Renderer ---
+            const testimonials = [
+                { quote: '"Same Day Supply is a lifesaver. I can always count on them to have the part I need in stock and get it to me fast. Their reliability keeps my projects on schedule."', author: 'John D.', company: 'Pro-Tech Services' },
+                { quote: '"The customer service is top-notch. They helped me identify a tricky replacement part over the phone and had it ready for pickup within the hour. Highly recommend."', author: 'Maria S.', company: 'Solutions Inc.' },
+                { quote: '"Finally, a supplier that understands the urgency of our work. The same-day delivery is a game-changer for my business. I don\'t shop anywhere else."', author: 'David L.', company: 'First Choice Contractors' },
+                { quote: '"Their huge inventory means I rarely have to go anywhere else. If they don\'t have it, you probably don\'t need it. A truly reliable partner in the field."', author: 'Mike R.', company: 'Reliable HVAC' },
+                { quote: '"The online ordering system is simple and the quick order feature is perfect for when I\'m on a job site. Saves me a ton of time every week."', author: 'Carlos G.', company: 'CG Plumbing' },
+                { quote: '"I trust Same Day Supply for all my critical components. Their quality and speed are unmatched in the industry."', author: 'Sarah P.', company: 'Pioneer Electrical' }
+            ];
+
+            const testimonialCardRenderer = (testimonial) => `
+                <div class="testimonial-card">
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote">${testimonial.quote}</p>
+                    <div class="author-info">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <div class="author-details">
+                            <p class="author">${testimonial.author}</p>
+                            <p class="company">${testimonial.company}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // --- Initialize Carousels ---
+            setupCarousel('product-carousel', products, productCardRenderer, { 0: 1, 768: 2, 1024: 4 }, 'arrows', true);
+            setupCarousel('testimonials-carousel', testimonials, testimonialCardRenderer, { 0: 1, 768: 2, 1024: 3 }, 'dots', true);
+
+
+            // --- Mobile menu toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                const isActive = mobileMenu.classList.toggle('is-active');
+                mobileMenuButton.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+
+            // --- Quick Order Modal Logic ---
+            const quickOrderModal = document.getElementById('quick-order-modal');
+            const openModalBtns = document.querySelectorAll('.quick-order-btn');
+            const closeModalBtn = quickOrderModal.querySelector('.close-modal');
+            const addPartBtn = quickOrderModal.querySelector('.add-part-btn');
+            const quickOrderRows = document.getElementById('quick-order-rows');
+
+            openModalBtns.forEach(btn => btn.addEventListener('click', () => quickOrderModal.classList.add('active')));
+            const closeModal = () => quickOrderModal.classList.remove('active');
+            closeModalBtn.addEventListener('click', closeModal);
+            quickOrderModal.addEventListener('click', (e) => {
+                if (e.target === quickOrderModal) closeModal();
+            });
+            addPartBtn.addEventListener('click', () => {
+                const newRow = document.createElement('div');
+                newRow.classList.add('form-row');
+                newRow.innerHTML = `
+                    <input type="text" name="part-number" placeholder="Enter Part #">
+                    <input type="number" name="part-qty" placeholder="Qty" value="1">
+                `;
+                quickOrderRows.appendChild(newRow);
+            });
+        });
+    </script>
+</body>
+</html>
